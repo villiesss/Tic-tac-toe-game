@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Крестики-нолики | Игра для женщин</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Quicksand:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Крестики-нолики</h1>
+            <p>Игра создана специально для женщин. Одержите победу над роботом и получайте промокоды за победы!</p>
+        </div>
+        
+        <div class="game-wrapper">
+            <div class="game-info">
+                <div class="player-info">
+                    <div class="player-icon">👩</div>
+                    <div class="player-name">Вы (X)</div>
+                    <div class="player-status" id="player-status">Ваш ход</div>
+                </div>
+                <div class="player-info">
+                    <div class="player-icon">🤖</div>
+                    <div class="player-name">Компьютер (O)</div>
+                    <div class="player-status" id="computer-status">Ожидание</div>
+                </div>
+            </div>
+            
+            <div class="game-board" id="game-board">
+                <!-- Клетки будут созданы через JavaScript -->
+            </div>
+            
+            <div class="controls">
+                <button class="btn btn-primary" id="new-game-btn">
+                    <i class="fas fa-redo-alt"></i> Новая игра
+                </button>
+                <button class="btn btn-secondary" id="rules-btn">
+                    <i class="fas fa-question-circle"></i> Правила
+                </button>
+            </div>
+        </div>
+        
+        <div class="instructions">
+            <h3>Как играть?</h3>
+            <ul>
+                <li>Вы играете за крестики (X), компьютер — за нолики (O)</li>
+                <li>Цель — поставить три своих знака в ряд по горизонтали, вертикали или диагонали</li>
+                <li>За победу вы получаете промокод на скидку, который также отправляется в Telegram-бот</li>
+                <li>При проигрыше вы можете начать новую игру</li>
+            </ul>
+        </div>
+        
+        <div class="footer">
+            <p>Игра создана с любовью для женской аудитории • Для связи: example@email.com</p>
+        </div>
+    </div>
+    
+    <!-- Модальное окно победы -->
+    <div class="modal" id="win-modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Поздравляем с победой! 🎉</h2>
+            <p class="modal-message">Вы обыграли компьютер и получаете промокод на скидку:</p>
+            <div class="promo-code" id="promo-code">XXXXX</div>
+            <p class="modal-message">Промокод также отправлен в Telegram-бот. Сохраните его для использования!</p>
+            <button class="btn btn-primary" id="close-win-modal">Играть еще раз</button>
+        </div>
+    </div>
+    
+    <!-- Модальное окно проигрыша -->
+    <div class="modal" id="lose-modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Игра окончена</h2>
+            <p class="modal-message">К сожалению, компьютер оказался сильнее в этот раз. Попробуйте еще раз — удача обязательно улыбнется!</p>
+            <p class="modal-message">Сообщение о проигрыше отправлено в Telegram-бот.</p>
+            <button class="btn btn-primary" id="close-lose-modal">Играть еще раз</button>
+        </div>
+    </div>
+    
+    <!-- Модальное окно ничьей -->
+    <div class="modal" id="draw-modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Ничья! 🤝</h2>
+            <p class="modal-message">Вы сыграли вничью с компьютером. Это достойный результат! Попробуйте еще раз, чтобы одержать победу.</p>
+            <button class="btn btn-primary" id="close-draw-modal">Играть еще раз</button>
+        </div>
+    </div>
+    
+    <!-- Модальное окно правил -->
+    <div class="modal" id="rules-modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Правила игры</h2>
+            <p class="modal-message">
+                <strong>Крестики-нолики</strong> — классическая игра для двух игроков на поле 3×3.<br><br>
+                Вы играете за крестики (X), компьютер — за нолики (O).<br><br>
+                Игроки по очереди ставят свои знаки в свободные клетки. Первый, кто выстроит три своих знака в ряд (по горизонтали, вертикали или диагонали), побеждает.<br><br>
+                Если все клетки заполнены, но никто не собрал ряд, объявляется ничья.<br><br>
+                <strong>Особенности этой версии:</strong><br>
+                • Игра адаптирована под женскую аудиторию
+            </p>
+            <button class="btn btn-primary" id="close-rules-modal">Понятно</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="telegram-bot.js"></script>
+</body>
+</html>
